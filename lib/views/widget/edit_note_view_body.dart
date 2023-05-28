@@ -10,8 +10,8 @@ class EditNoteViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        children: const [
+      child:  Column(
+        children: const  [
              SizedBox(height: 50),
           CustomAppBar(
             title: 'EditNote',
