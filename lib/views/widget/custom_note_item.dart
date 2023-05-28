@@ -9,16 +9,21 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context) {
-  return const EditNoteView();
-      }),);},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return const EditNoteView();
+          }),
+        );
+      },
       child: Container(
         decoration: BoxDecoration(
           color: const Color(0xffffcc80),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 24 , bottom: 24 , left: 16),
+          padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -28,7 +33,7 @@ class NoteItem extends StatelessWidget {
                   style: TextStyle(fontSize: 26, color: Colors.black),
                 ),
                 subtitle: Padding(
-                  padding: const EdgeInsets.only(top:16 , bottom: 16),
+                  padding: const EdgeInsets.only(top: 16, bottom: 16),
                   child: Text(
                     'Build your career with Abdalrhman Abood',
                     style: TextStyle(
