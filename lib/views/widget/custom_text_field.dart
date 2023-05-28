@@ -9,7 +9,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       cursorColor: kPrimaryColor,
-      maxLength: maxlines,
+      maxLines: maxlines,
       decoration: InputDecoration(
         hintText: hint,
         // hintStyle: const TextStyle(
