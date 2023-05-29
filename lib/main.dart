@@ -3,11 +3,12 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/views/notes_views.dart';
 
 import 'constants.dart';
-
+import 'models/note_model.dart';
 
 void main() async {
   await Hive.initFlutter();
- await Hive.openBox(kNotesBox);
+  await Hive.openBox(kNotesBox);
+  Hive.registerAdapter(NoteModelAdapter());
   runApp(const NotesApp());
 }
 
@@ -19,11 +20,9 @@ class NotesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Poppins',
- brightness: Brightness.dark ,
+        brightness: Brightness.dark,
       ),
       home: const NotesViews(),
     );
   }
 }
-
-
