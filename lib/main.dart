@@ -4,7 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/views/notes_views.dart';
 
 import 'constants.dart';
-import 'cubits/add_note_cubit/add_note_cubit.dart';
+// import 'cubits/add_note_cubit/add_note_cubit.dart';
 import 'models/note_model.dart';
 import 'simple_bloc_observer.dart';
 
