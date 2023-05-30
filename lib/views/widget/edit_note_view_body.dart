@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 
 import '../../models/note_model.dart';
+
 import 'custom_app_bar.dart';
 import 'custom_text_field.dart';
+import 'edit_color_note_list.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({
@@ -23,36 +25,44 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        children: [
-          const SizedBox(height: 50),
-          CustomAppBar(
-            onPressed: () {
-              widget.note.title = title ?? widget.note.title ;
-              widget.note.subtitle = subTitle ?? widget.note.subtitle ;
-              widget.note.save();
-              Navigator.pop(context);
-              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-            },
-            title: 'EditNote',
-            icon: Icons.check,
-          ),
-          const SizedBox(height: 50),
-          CustomTextField(
-              onChanged: (value) {
-                title = value;
+         padding:  EdgeInsets.only(left: 16 , right: 16,
+             bottom: MediaQuery.of(context).viewInsets.bottom,),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 50),
+            CustomAppBar(
+              onPressed: () {
+                widget.note.title = title ?? widget.note.title;
+                widget.note.subtitle = subTitle ?? widget.note.subtitle;
+                widget.note.save();
+                Navigator.pop(context);
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               },
-              hint: widget.note.title),
-          const SizedBox(height: 16),
-           CustomTextField(
-             onChanged: (value) {
+              title: 'EditNote',
+              icon: Icons.check,
+            ),
+            const SizedBox(height: 50),
+            CustomTextField(
+                onChanged: (value) {
+                  title = value;
+                },
+                hint: widget.note.title),
+            const SizedBox(height: 16),
+            CustomTextField(
+              onChanged: (value) {
                 subTitle = value;
               },
-            hint: widget.note.subtitle,
-            maxlines: 5,
-          ),
-        ],
+              hint: widget.note.subtitle,
+              maxlines: 5,
+            ),
+            const SizedBox(height: 16),
+            EditColorItemList(
+              note: widget.note,
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
       ),
     );
   }
