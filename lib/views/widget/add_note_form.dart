@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../../cubits/add_note_cubit/add_note_cubit.dart';
 import '../../models/note_model.dart';
+import 'colors_Item_list.dart';
 import 'custom_buttom.dart';
 import 'custom_text_field.dart';
 
@@ -47,6 +48,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               hint: 'Content',
               maxlines: 5,
             ),
+            const ColorItemList(),
             const SizedBox(
               height: 32,
             ),
@@ -83,3 +85,4 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
